@@ -1,14 +1,14 @@
-import { Component, createSignal, onMount } from "solid-js";
-import getCity from "../../functions/getCity/getCity";
+import { Component, createSignal, onMount } from "solid-js"
+import getData from "../../functions/getData/getData"
 
 const MainDisplay: Component = () => {
-    const [city, setCity] = createSignal("...");
+    const [city, setCity] = createSignal("...")
 
     onMount(() => {
-        getCity().then(setCity);
-    });
+        getData().then(data => setCity(data.city))
+    })
 
-    return <div>{city()}</div>;
-};
+    return <div>{city()}</div>
+}
 
-export default MainDisplay;
+export default MainDisplay

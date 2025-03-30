@@ -1,8 +1,7 @@
 import { type Component, createSignal, createEffect, onMount } from "solid-js"
-import { MainDisplay } from "../"
-import getData from "../../functions/getData/getData"
-import type { MainDataResponse, WeatherDataResponse } from "@types"
-import getWeather from "../../functions/getWeather/getWeather"
+import { MainDisplay } from "@/components"
+import { getData, getWeather } from "@/functions"
+import type { MainDataResponse, WeatherDataResponse } from "@/types"
 
 const App: Component = () => {
     const [dataResponse, setDataResponse] = createSignal<MainDataResponse | null>(null)

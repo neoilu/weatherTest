@@ -1,7 +1,7 @@
-import getWeatherState from "../../functions/getWeatherState/getWeatherState"
 import { Component } from "solid-js"
-import type { MainDataResponse, WeatherDataResponse } from "@types"
 import styles from "./style.module.css"
+import type { MainDataResponse, WeatherDataResponse } from "@/types"
+import { getWeatherState } from "@/functions"
 
 interface MainDisplayProps {
     data: MainDataResponse

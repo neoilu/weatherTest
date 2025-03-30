@@ -8,7 +8,10 @@ interface MainDisplayProps {
     weather: WeatherDataResponse
 }
 
-const MainDisplay: Component<MainDisplayProps> = ({ data, weather }: MainDisplayProps) => {
+const MainDisplay: Component<MainDisplayProps> = ({
+    data,
+    weather,
+}: MainDisplayProps) => {
     return (
         <div class={styles.card}>
             <div>
@@ -20,7 +23,10 @@ const MainDisplay: Component<MainDisplayProps> = ({ data, weather }: MainDisplay
             </div>
             <div>
                 <p>{getWeatherState(weather.current_weather.weathercode)}</p>
-                <p>H:{Math.round(weather.daily.temperature_2m_max[0])} L:{Math.round(weather.daily.temperature_2m_min[0])} </p>
+                <p>
+                    H:{Math.round(weather.daily.temperature_2m_max[0])} L:
+                    {Math.round(weather.daily.temperature_2m_min[0])}{" "}
+                </p>
             </div>
         </div>
     )

@@ -1,13 +1,15 @@
-import { WeatherDataResponse } from "@types"
+import { WeatherDataResponse } from "@/types"
 
-async function getWeather(latitude: string, longitude: string): Promise<WeatherDataResponse | null> {
+async function getWeather(
+    latitude: string,
+    longitude: string,
+): Promise<WeatherDataResponse | null> {
     try {
         const response = await fetch(
             `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true&hourly=temperature_2m,weathercode,wind_speed_10m,wind_direction_10m,apparent_temperature&daily=temperature_2m_max,temperature_2m_min,precipitation_sum,weathercode`,
         )
 
         const data = await response.json()
-
 
         if (!data) {
             throw new Error("api err")

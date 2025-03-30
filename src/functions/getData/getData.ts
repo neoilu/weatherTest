@@ -1,4 +1,4 @@
-import type { MainDataResponse } from "@types"
+import type { MainDataResponse } from "@/types"
 
 async function getData() {
     try {

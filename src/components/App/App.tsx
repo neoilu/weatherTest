@@ -4,42 +4,53 @@ import { getData, getWeather } from "@/functions"
 import type { MainDataResponse, WeatherDataResponse } from "@/types"
 
 const App: Component = () => {
-    const [dataResponse, setDataResponse] = createSignal<MainDataResponse | null>(null)
-    const [weatherResponse, setWeatherResponse] = createSignal<WeatherDataResponse | null>(null)
+    const [dataResponse, setDataResponse] =
+        createSignal<MainDataResponse | null>(null)
+    const [weatherResponse, setWeatherResponse] =
+        createSignal<WeatherDataResponse | null>(null)
 
     onMount(async () => {
-        const data = await getData()
-        if (!data) {
-            throw new Error("getData err!")
-        }
-        setDataResponse(data)
+        try {
+            const data = await getData()
+            if (!data) {
+                throw new Error("getData err!")
+            }
+            setDataResponse(data)
 
-        const weather = await getWeather(data.latitude, data.longitude)
-        if (!weather) {
-            throw new Error("getWeather err!")
+            const weather = await getWeather(data.latitude, data.longitude)
+            if (!weather) {
+                throw new Error("getWeather err!")
+            }
+            setWeatherResponse(weather)
+        } catch (e) {
+            console.error(e)
         }
-        setWeatherResponse(weather)
-
     })
 
     createEffect(() => {
         if (weatherResponse()) {
-            const weatherCode = weatherResponse()?.current_weather.weathercode ?? 0;
-            const isRainy = [51, 53, 55, 61, 63, 65, 80, 81, 82].includes(weatherCode);
-            const isDay = weatherResponse()?.current_weather.is_day === 1;
-    
-            document.body.classList.remove("day-theme", "night-theme", "rain-theme");
-    
+            const weatherCode =
+                weatherResponse()?.current_weather.weathercode ?? 0
+            const isRainy = [51, 53, 55, 61, 63, 65, 80, 81, 82].includes(
+                weatherCode,
+            )
+            const isDay = weatherResponse()?.current_weather.is_day === 1
+
+            document.body.classList.remove(
+                "dayTheme",
+                "nightTheme",
+                "rainTheme",
+            )
+
             if (isRainy) {
-                document.body.classList.add("rainTheme");
+                document.body.classList.add("rainTheme")
             } else if (isDay) {
-                document.body.classList.add("dayTheme");
+                document.body.classList.add("dayTheme")
             } else {
-                document.body.classList.add("nightTheme");
+                document.body.classList.add("nightTheme")
             }
         }
-    });
-    
+    })
 
     return (
         <>

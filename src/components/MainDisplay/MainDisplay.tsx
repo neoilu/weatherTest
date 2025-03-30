@@ -13,19 +13,23 @@ const MainDisplay: Component<MainDisplayProps> = ({
     weather,
 }: MainDisplayProps) => {
     return (
-        <div class={styles.card}>
-            <div>
-                <p>MY LOCATION</p>
-                <p>{data.city}</p>
+        <div class={`${styles.card} ${styles.nightTheme}`}>
+            <div class={styles.top}>
+                <p class={styles.location}>MY LOCATION</p>
+                <p class={styles.city}>{data.city}</p>
             </div>
-            <div>
-                <p>{Math.round(weather.current_weather.temperature)}°</p>
+            <div class={styles.middle}>
+                <p class={styles.temperature}>
+                    {Math.round(weather.current_weather.temperature)}°
+                </p>
             </div>
-            <div>
-                <p>{getWeatherState(weather.current_weather.weathercode)}</p>
-                <p>
-                    H:{Math.round(weather.daily.temperature_2m_max[0])} L:
-                    {Math.round(weather.daily.temperature_2m_min[0])}{" "}
+            <div class={styles.bottom}>
+                <p class={styles.weatherState}>
+                    {getWeatherState(weather.current_weather.weathercode)}
+                </p>
+                <p class={styles.dailyTemperature}>
+                    H:{Math.round(weather.daily.temperature_2m_max[0])}° L:
+                    {Math.round(weather.daily.temperature_2m_min[0])}°
                 </p>
             </div>
         </div>

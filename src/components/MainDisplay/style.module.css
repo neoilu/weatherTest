@@ -1,3 +1,55 @@
-.card{
-    width: 100px;
+.card {
+    width: 405px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly
+}
+
+.nightTheme {
+    background-color: rgb(118, 118, 128, 0.24);
+    border-radius: 16px;
+}
+
+p {
+    color: #FFF;
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 600;
+
+}
+
+.top {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.location {
+    font-size: 14px;
+}
+
+.city {
+    font-size: 26px;
+}
+
+.middle, .bottom{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.temperature {
+    font-size: 100px;
+    font-weight: 100;
+}
+
+
+.weatherState {
+    font-size: 20px;
+}
+
+.dailyTemperature{
+    font-size: 18px;
 }

@@ -1,15 +1,16 @@
 import getWeatherState from "../../functions/getWeatherState/getWeatherState"
 import { Component } from "solid-js"
-import type { mainDataResponse, weatherDataResponse } from "types"
+import type { MainDataResponse, WeatherDataResponse } from "@types"
+import styles from "./style.module.css"
 
 interface MainDisplayProps {
-    data: mainDataResponse
-    weather: weatherDataResponse
+    data: MainDataResponse
+    weather: WeatherDataResponse
 }
 
 const MainDisplay: Component<MainDisplayProps> = ({ data, weather }: MainDisplayProps) => {
     return (
-        <div>
+        <div class={styles.card}>
             <div>
                 <p>MY LOCATION</p>
                 <p>{data.city}</p>

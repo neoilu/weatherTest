@@ -1,15 +1,15 @@
-import type { mainDataResponse } from "types"
+import type { MainDataResponse } from "@types"
 
 async function getData() {
     try {
-        let response = await fetch("https://ipwhois.app/json/")
-        let data = await response.json()
+        const response = await fetch("https://ipwhois.app/json/")
+        const data = await response.json()
         return {
             city: data.city,
             latitude: data.latitude,
             longitude: data.longitude,
             timezone: data.timezone,
-        } as mainDataResponse
+        } as MainDataResponse
     } catch (e) {
         console.error(e)
         return null

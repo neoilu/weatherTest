@@ -1,11 +1,11 @@
-export interface mainDataResponse {
+export interface MainDataResponse {
     city: string
     latitude: string
     longitude: string
     timezone: string
 }
 
-export interface weatherDataResponse {
+export interface WeatherDataResponse {
     current_weather: {
         temperature: number
         windspeed: number

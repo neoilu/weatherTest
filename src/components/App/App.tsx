@@ -1,4 +1,4 @@
-import { type Component, createSignal, onMount } from "solid-js"
+import { type Component, createSignal, createEffect, onMount } from "solid-js"
 import MainDisplay from "../MainDisplay"
 import getData from "../../functions/getData/getData"
 import type { mainDataResponse, weatherDataResponse } from "types"
@@ -22,6 +22,25 @@ const App: Component = () => {
         setWeatherResponse(weather)
 
     })
+
+    createEffect(() => {
+        if (weatherResponse()) {
+            const weatherCode = weatherResponse()?.current_weather.weathercode ?? 0;
+            const isRainy = [51, 53, 55, 61, 63, 65, 80, 81, 82].includes(weatherCode);
+            const isDay = weatherResponse()?.current_weather.is_day === 1;
+    
+            document.body.classList.remove("day-theme", "night-theme", "rain-theme");
+    
+            if (isRainy) {
+                document.body.classList.add("rainTheme");
+            } else if (isDay) {
+                document.body.classList.add("dayTheme");
+            } else {
+                document.body.classList.add("nightTheme");
+            }
+        }
+    });
+    
 
     return (
         <>

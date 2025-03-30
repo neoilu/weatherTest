@@ -15,7 +15,7 @@ const MainDisplay: Component<MainDisplayProps> = ({ data, weather }: MainDisplay
                 <p>{data.city}</p>
             </div>
             <div>
-                <p>{weather.current_weather.temperature}°</p>
+                <p>{Math.round(weather.current_weather.temperature)}°</p>
             </div>
             <div>
                 <p>{getWeatherState(weather.current_weather.weathercode)}</p>

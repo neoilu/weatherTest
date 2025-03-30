@@ -11,6 +11,7 @@ export interface weatherDataResponse {
         windspeed: number
         winddirection: number
         weathercode: number
+        is_day: number
     }
     hourly: {
         time: string[]

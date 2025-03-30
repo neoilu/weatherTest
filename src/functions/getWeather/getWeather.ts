@@ -16,6 +16,8 @@ async function getWeather(latitude: string, longitude: string): Promise<weatherD
         const hourlyData = await hourlyResponse.json()
         const dailyData = await dailyResponse.json()
 
+        console.log(currentData)
+
         if (!currentData && !hourlyData && !dailyData) {
             throw new Error("fjgbhvhbdjc")
         }
@@ -26,6 +28,7 @@ async function getWeather(latitude: string, longitude: string): Promise<weatherD
                 windspeed: currentData.current_weather.windspeed,
                 winddirection: currentData.current_weather.winddirection,
                 weathercode: currentData.current_weather.weathercode,
+                is_day: currentData.current_weather.is_day,
             },
 
             hourly: {

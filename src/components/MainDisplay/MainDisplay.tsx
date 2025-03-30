@@ -12,17 +12,24 @@ const MainDisplay: Component = () => {
             setCity(data.city)
 
             if (!data || !data.city || !data.latitude || !data.longitude) {
-                throw new Error("Некорректные данные от getData()");
+                throw new Error("getData err!")
             }
 
             const weather = await getWeather(data.latitude, data.longitude) 
-            setTemperature(weather.current_weather.temperature)
+            setTemperature(`${Math.round(weather.current_weather.temperature)}°`);
         } catch (e) {
             console.error(e)
         }
     })
 
-    return <div>{city()} {temperature()}</div>
+    return <div>
+        <div>
+            <p>MY LOCATION</p>
+            <p>{city()}</p>
+        </div>
+        <div>{temperature()}</div>
+        <div></div>
+    </div>
 }
 
 export default MainDisplay

@@ -10,7 +10,7 @@ body, html {
 }
 
 .nightTheme {
-  background-image: linear-gradient(#2E4068, #08091E);
+  background-image: linear-gradient(#08091E,#2E4068);
   background-repeat: no-repeat;
   background-size: cover;
 }

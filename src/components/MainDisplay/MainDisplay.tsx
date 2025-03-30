@@ -7,6 +7,8 @@ const MainDisplay: Component = () => {
     const [city, setCity] = createSignal("...")
     const [temperature, setTemperature] = createSignal("...")
     const [weatherState, setWeatherState] = createSignal("...")
+    const [minTemp, setMinTemp] = createSignal("...")
+    const [maxTemp, setMaxTemp] = createSignal("...")
 
     onMount(async () => {
         try {
@@ -17,7 +19,11 @@ const MainDisplay: Component = () => {
 
             setCity(data.city)
 
-            const weather = await getWeather(data.latitude, data.longitude)
+            const weather = await getWeather(
+                data.latitude,
+                data.longitude,
+                data.timezone,
+            )
             if (!weather) {
                 throw new Error("getWeather err!")
             }
@@ -28,6 +34,8 @@ const MainDisplay: Component = () => {
             setWeatherState(
                 getWeatherState(weather.current_weather.weathercode),
             )
+            setMaxTemp(`${Math.round(weather.daily.temperature_2m_max[0])}°`)
+            setMinTemp(`${Math.round(weather.daily.temperature_2m_min[0])}°`)
         } catch (e) {
             console.error(e)
         }
@@ -40,7 +48,12 @@ const MainDisplay: Component = () => {
                 <p>{city()}</p>
             </div>
             <div>{temperature()}</div>
-            <div>{weatherState()}</div>
+            <div>
+                <p>{weatherState()}</p>
+                <p>
+                    H:{maxTemp()} L:{minTemp()}
+                </p>
+            </div>
         </div>
     )
 }

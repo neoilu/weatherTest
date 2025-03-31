@@ -5,13 +5,6 @@
     align-items: center;
 }
 
-.input {
-    width: 343px;
-    height: 36px;
-    margin-left: 75px;
-    background-color: rgb(118, 118, 128, 0.24);
-    border: none;
-}
 
 .nightTheme {
     background-color: rgb(118, 118, 128, 0.24);
@@ -26,32 +19,36 @@
 }
 
 
-.input {
+.searchInput {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 343px;
+    height: 40px;
+    background-color: rgba(118, 118, 128, 0.24);
     border-radius: 10px;
-    padding-left: 30px;
-    background-image: url("../../assets/search.svg");
-    background-repeat: no-repeat;
-    background-position: 8px;
-    background-size: 16px;
-    color: rgb(235, 235, 245, 0.60);
+    padding: 0 12px 0 8px;
+    gap: 6px;
+    margin-left: 80px;
+}
+
+.input {
+    flex: 1;
+    height: 100%;
+    background: transparent;
+    border: none;
+    color: rgba(235, 235, 245, 0.6);
     font-family: "SF Pro Display", sans-serif;
     font-weight: 400;
     font-size: 17px;
+    padding: 0 8px 0 0;
 }
 
 .input::placeholder {
-    color: rgb(235, 235, 245, 0.60);
-    font-family: "SF Pro Display", sans-serif;
-    font-weight: 400;
-    font-size: 17px;
+    color: rgba(235, 235, 245, 0.6);
 }
 
 .input:focus {
     outline: none;
-    caret-color: rgb(235, 235, 245, 0.60);
-    
-}
-
-.input::placeholder:focus {
-    display: none;
+    caret-color: rgba(235, 235, 245, 0.6);
 }

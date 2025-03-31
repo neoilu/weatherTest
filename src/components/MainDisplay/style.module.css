@@ -3,12 +3,20 @@
     height: 450px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly
+    justify-content: space-evenly;
+    border-radius: 16px;
 }
 
 .nightTheme {
     background-color: rgb(118, 118, 128, 0.24);
-    border-radius: 16px;
+}
+
+.dayTheme{
+    background-color: rgb(65, 142, 188, 0.30);
+}
+
+.rainTheme{
+      background-color: rgba(106, 106, 124, 0.24);
 }
 
 p {

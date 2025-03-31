@@ -4,10 +4,9 @@ import { getData, getWeather } from "@/functions"
 import type { MainDataResponse, WeatherDataResponse } from "@/types"
 
 const App: Component = () => {
-    const [dataResponse, setDataResponse] =
-        createSignal<MainDataResponse | null>(null)
-    const [weatherResponse, setWeatherResponse] =
-        createSignal<WeatherDataResponse | null>(null)
+    const [dataResponse, setDataResponse] = createSignal<MainDataResponse | null>(null)
+    const [weatherResponse, setWeatherResponse] = createSignal<WeatherDataResponse | null>(null)
+    const [theme, setTheme] = createSignal<string>("dayTheme")
 
     onMount(async () => {
         try {
@@ -22,33 +21,18 @@ const App: Component = () => {
                 throw new Error("getWeather err!")
             }
             setWeatherResponse(weather)
+    
+            const weatherCode = weather.current_weather.weathercode ?? 0;
+            const isRainy = [51, 53, 55, 61, 63, 65, 80, 81, 82].includes(weatherCode);
+            const isDay = weather.current_weather.is_day === 1;
+        
+            const newTheme = isRainy ? "rainTheme" : isDay ? "dayTheme" : "nightTheme";
+            setTheme(newTheme);
+            
+            document.body.classList.remove("dayTheme", "nightTheme", "rainTheme");
+            document.body.classList.add(newTheme);
         } catch (e) {
             console.error(e)
-        }
-    })
-
-    createEffect(() => {
-        if (weatherResponse()) {
-            const weatherCode =
-                weatherResponse()?.current_weather.weathercode ?? 0
-            const isRainy = [51, 53, 55, 61, 63, 65, 80, 81, 82].includes(
-                weatherCode,
-            )
-            const isDay = weatherResponse()?.current_weather.is_day === 1
-
-            document.body.classList.remove(
-                "dayTheme",
-                "nightTheme",
-                "rainTheme",
-            )
-
-            if (isRainy) {
-                document.body.classList.add("rainTheme")
-            } else if (isDay) {
-                document.body.classList.add("dayTheme")
-            } else {
-                document.body.classList.add("nightTheme")
-            }
         }
     })
 
@@ -59,6 +43,7 @@ const App: Component = () => {
                     <MainDisplay
                         data={dataResponse()!}
                         weather={weatherResponse()!}
+                        theme={theme()}
                     />
                 ) : (
                     <p>Loading...</p>

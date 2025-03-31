@@ -5,4 +5,7 @@ export interface IconProps {
     opacity?: number;
 }
 
-export * from "./icons/searchIcon"
+import SearchIcon from "./icons/SearchIcon";
+import XIcon from "./icons/XIcon";
+
+export {SearchIcon, XIcon}

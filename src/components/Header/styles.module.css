@@ -37,7 +37,7 @@
     height: 100%;
     background: transparent;
     border: none;
-    color: rgba(235, 235, 245, 0.6);
+    color: rgb(240, 240, 243, 0.8);
     font-family: "SF Pro Display", sans-serif;
     font-weight: 400;
     font-size: 17px;
@@ -45,10 +45,41 @@
 }
 
 .input::placeholder {
-    color: rgba(235, 235, 245, 0.6);
+    color: rgba(240, 240, 243, 0.8);
 }
 
 .input:focus {
     outline: none;
-    caret-color: rgba(235, 235, 245, 0.6);
+    caret-color: rgba(240, 240, 243, 0.8);
+}
+
+.cancelButton {
+    border: none;
+    background-color: transparent; 
+    cursor: pointer; 
+    padding: 0;
+    margin-left: 8px; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+}
+
+.cancelButton:focus {
+    outline: none;
+}
+
+.searchButton {
+    border: none;
+    background-color: transparent;
+    color: rgba(240, 240, 243, 0.8);
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchButton:focus {
+    outline: none;
 }

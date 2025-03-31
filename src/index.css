@@ -1,21 +1,25 @@
-* {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
-body, html {
+
+body,
+html {
   height: 100%;
   width: 100%;
 }
 
 .nightTheme {
-  background-image: linear-gradient(#08091E,#2E4068);
+  background-image: linear-gradient(#08091E, #2E4068);
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.dayTheme{
+.dayTheme {
   background-image: linear-gradient(#9ECAE3, #6399B5);
   background-repeat: no-repeat;
   background-size: cover;

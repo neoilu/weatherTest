@@ -1,5 +1,5 @@
 import { type Component, createSignal, createEffect, onMount } from "solid-js"
-import { MainDisplay } from "@/components"
+import { MainDisplay,   Header } from "@/components"
 import { getData, getWeather } from "@/functions"
 import type { MainDataResponse, WeatherDataResponse } from "@/types"
 
@@ -39,6 +39,7 @@ const App: Component = () => {
     return (
         <>
             <div>
+                <Header theme={theme()}/>
                 {dataResponse() && weatherResponse() ? (
                     <MainDisplay
                         data={dataResponse()!}

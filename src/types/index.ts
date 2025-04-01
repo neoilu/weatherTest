@@ -14,6 +14,7 @@ export interface WeatherDataResponse {
         is_day: number
     }
     hourly: {
+        humidity: number[]
         time: string[]
         temperature_2m: number[]
         weathercode: number[]
@@ -31,7 +32,7 @@ export interface WeatherDataResponse {
 }
 
 export interface CardProps {
-    data: MainDataResponse
-    weather: WeatherDataResponse
+    data?: MainDataResponse
+    weather?: WeatherDataResponse
     theme: string | null
 }

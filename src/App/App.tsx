@@ -1,5 +1,6 @@
-import { type Component, onMount } from "solid-js"
+import { Component, onMount } from "solid-js"
 import { useFetchWeather, useTheme, useFetchData } from "@/hooks"
+import { MainPage } from "./MainPage"
 
 const App: Component = () => {
     const { dataResponse, fetchData } = useFetchData()
@@ -16,7 +17,6 @@ const App: Component = () => {
             }
 
             updateTheme(weatherResponse()!)
-
         } catch (e) {
             console.error(e)
         }
@@ -24,7 +24,17 @@ const App: Component = () => {
 
     return (
         <>
-            {theme()}
+            {dataResponse() && weatherResponse() ? (
+                <div>
+                    <MainPage
+                        data={dataResponse()!}
+                        weather={weatherResponse()!}
+                        theme={theme()}
+                    />
+                </div>
+            ) : (
+                <div>Loading...</div>
+            )}
         </>
     )
 }

@@ -1,6 +1,6 @@
 import { Component, createSignal } from "solid-js"
 import styles from "./styles.module.css"
-import { SearchIcon, XIcon } from "@/icons" 
+import { SearchIcon, XIcon } from "@/icons"
 
 interface HeaderProps {
     theme: string
@@ -37,7 +37,7 @@ const Header: Component<HeaderProps> = props => {
                     id="search"
                     placeholder="Search"
                     value={searchValue()}
-                    onInput={e => setSearchValue(e.target.value)} 
+                    onInput={e => setSearchValue(e.target.value)}
                 />
 
                 {searchValue() && (

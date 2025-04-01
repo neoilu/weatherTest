@@ -14,8 +14,6 @@ async function getWeather(
         if (!data) {
             throw new Error("api err")
         }
-
-        console.log(data)
         
         return {
             current_weather: {

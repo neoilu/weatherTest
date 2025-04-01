@@ -1,0 +1,28 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.nightTheme {
+    background-color: rgba(118, 118, 128, 0.24);
+}
+
+.dayTheme {
+    background-color: rgba(65, 142, 188, 0.30);
+}
+
+.rainTheme {
+    background-color: rgba(106, 106, 124, 0.24);
+}
+
+p {
+    color: #FFF;
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+}

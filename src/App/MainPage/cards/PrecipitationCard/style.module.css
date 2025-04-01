@@ -1,6 +1,4 @@
 .card {
-    width: 165px;
-    height: 165px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

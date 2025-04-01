@@ -4,7 +4,7 @@ import styles from "./style.module.css"
 
 const PrecipitationCard: Component<CardProps> = props => {
     return (
-        <div class={`${styles.card} ${props.theme ? styles[props.theme] : ""}`}>
+        <div class={`${styles.card} ${styles[props.theme()]}`}>
             <p class={styles.cardName}>PRECIPITATION</p>
             <div class={styles.middle}>
                 <p class={styles.precipitationSumToday}>

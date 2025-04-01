@@ -34,5 +34,5 @@ export interface WeatherDataResponse {
 export interface CardProps {
     data?: MainDataResponse
     weather?: WeatherDataResponse
-    theme: string | null
+    theme: () => string
 }

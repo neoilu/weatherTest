@@ -8,10 +8,8 @@ const FeelsLikeCard: Component<CardProps> = props => {
         return <div>Loading...</div>
     }
 
-    console.log(props.weather)
-
     return (
-        <div class={`${styles.card} ${props.theme ? styles[props.theme] : ""}`}>
+        <div class={`${styles.card} ${styles[props.theme()]}`}>
             <p class={styles.cardName}>FEELS LIKE</p>
             <p class={styles.temperature}>
                 {Math.round(
@@ -21,8 +19,9 @@ const FeelsLikeCard: Component<CardProps> = props => {
                 )}
                 °
             </p>
-
-            <p class={styles.feelsLikeReason}>{getFeelsLikeReason(props.weather)!}</p>
+            <p class={styles.feelsLikeReason}>
+                {getFeelsLikeReason(props.weather)!}
+            </p>
         </div>
     )
 }

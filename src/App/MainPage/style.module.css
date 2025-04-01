@@ -1,0 +1,95 @@
+.gridContainer {
+    margin: 25px auto;
+    padding: 0 20px;
+    max-width: 80%;
+    height: 80vh; 
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 1fr 1fr; 
+    grid-template-rows: 1fr 1fr 1,5fr;  
+    gap: 25px 25px;
+    grid-template-areas:
+        "main main nextHours nextWeek"
+        "main main wind nextWeek"
+        "feelsLike precipitation . nextWeek";
+}
+
+.feelsLike, .nextWeek, .nextHours, .wind, .precipitation {
+    max-height: 100%;
+}
+
+.main {
+    grid-area: main;  
+    width: 100%;
+    height: 100%;  
+}
+
+.feelsLike {
+    grid-area: feelsLike;
+    width: 100%;
+    height: 100%;  
+}
+
+.precipitation {
+    grid-area: precipitation;
+    width: 100%;
+    height: 100%;  
+}
+
+.nextHours {
+    grid-area: nextHours;
+    width: 100%;
+    height: 100%;  
+}
+
+.wind {
+    grid-area: wind;
+    width: 100%;
+    height: 100%;  
+}
+
+.nextWeek {
+    grid-area: nextWeek;
+    width: 100%;
+    height: 100%;  
+}
+
+@media (max-width: 768px) {
+    .gridContainer {
+        max-width: 95%;  
+        grid-template-columns: 1fr 1fr; 
+        grid-template-areas:
+            "main main"            
+            "feelsLike precipitation"
+            "nextHours wind"
+            "nextWeek nextWeek"; 
+    }
+
+    .main {
+        grid-column: span 2;  
+    }
+
+}
+
+
+@media (max-width: 480px) {
+    .gridContainer {
+        max-width: 100%;  
+        grid-template-columns: 1fr; 
+        grid-template-areas:
+            "main"            
+            "feelsLike"
+            "nextHours"
+            "precipitation"
+            "wind"            
+            "nextWeek";
+
+    }
+
+    .main {
+        grid-column: span 1; 
+    }
+
+    .nextWeek {
+        grid-column: span 1; 
+    }
+}

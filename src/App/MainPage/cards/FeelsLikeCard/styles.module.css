@@ -1,6 +1,4 @@
 .card {
-    width: 165px;
-    height: 165px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -26,12 +24,13 @@ p {
     font-family: 'SF Pro Display', sans-serif;
     font-weight: 600;
     margin: 0;
-    text-align: center;
+    text-align: left;
 }
 
 .cardName {
     font-size: 14px;
     opacity: 0.8;
+    white-space: nowrap
 }
 
 .feelsLikeReason{

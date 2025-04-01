@@ -29,3 +29,9 @@ export interface WeatherDataResponse {
         weathercode: number[]
     }
 }
+
+export interface CardProps {
+    data: MainDataResponse
+    weather: WeatherDataResponse
+    theme: string | null
+}

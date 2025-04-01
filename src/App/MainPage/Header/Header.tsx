@@ -1,6 +1,6 @@
 import { Component, createSignal } from "solid-js"
 import styles from "./styles.module.css"
-import { SearchIcon, XIcon } from "@/assets" // Импортируем иконки
+import { SearchIcon, XIcon } from "@/icons" 
 
 interface HeaderProps {
     theme: string

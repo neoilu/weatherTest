@@ -1,5 +1,5 @@
 import { Component } from "solid-js";
-import { IconProps } from "..";
+import { IconProps } from "../icons";
 
 
 const SearchIcon: Component<IconProps> = (props) => (

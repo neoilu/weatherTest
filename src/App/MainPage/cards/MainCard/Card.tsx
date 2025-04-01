@@ -1,15 +1,13 @@
 import { Component } from "solid-js";
 import styles from "./style.module.css";
-import type { MainDataResponse, WeatherDataResponse } from "@/types";
-import { getWeatherState } from "@/functions";
+import type { CardProps } from "@/types";
+import { getWeatherState } from "@/utils";
 
-interface MainDisplayProps {
-    data: MainDataResponse;
-    weather: WeatherDataResponse;
-    theme: string | null;
-}
 
-const MainDisplay: Component<MainDisplayProps> = (props) => {
+const MainCard: Component<CardProps> = (props) => {
+    if (!props.data || !props.weather) {
+        return <div>Loading...</div>; 
+    }
     return (
         <div class={`${styles.card} ${props.theme ? styles[props.theme] : ""}`}>
             <div class={styles.top}>
@@ -34,4 +32,4 @@ const MainDisplay: Component<MainDisplayProps> = (props) => {
     );
 };
 
-export default MainDisplay;
+export default MainCard;

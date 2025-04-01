@@ -3,7 +3,7 @@
     height: 165px;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: flex-start;
     border-radius: 16px;
     padding: 18px;
@@ -29,7 +29,7 @@ p {
     text-align: center;
 }
 
-.feelsLike {
+.cardName {
     font-size: 14px;
     opacity: 0.8;
 }
@@ -41,6 +41,6 @@ p {
 }
 
 .temperature {
-    font-size: 50px;
-    font-weight: 200;
+    font-size: 35px;
+    font-weight: 400;
 }

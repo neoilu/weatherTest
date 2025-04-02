@@ -26,8 +26,10 @@ const MainPage: Component<CardProps> = props => {
 
     return (
         <>
-            <Header theme={props.theme()} />
             <div class={styles.gridContainer}>
+                <div class={styles.header}>
+                <Header {...commonProps} />
+                </div>
                 <div class={styles.main}>
                     <MainCard {...commonProps} />
                 </div>

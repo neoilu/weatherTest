@@ -1,12 +1,9 @@
 import { Component, createSignal } from "solid-js"
 import styles from "./styles.module.css"
 import { SearchIcon, XIcon } from "@/icons"
+import { CardProps } from "@/types"
 
-interface HeaderProps {
-    theme: string
-}
-
-const Header: Component<HeaderProps> = props => {
+const Header: Component<CardProps> = props => {
     const [searchValue, setSearchValue] = createSignal("")
 
     const handleCancel = () => {
@@ -19,7 +16,7 @@ const Header: Component<HeaderProps> = props => {
 
     return (
         <div class={styles.headerBlock}>
-            <div class={styles.searchInput}>
+            <div class={`${styles.searchInput} ${styles[props.theme()]}`}>
                 <button class={styles.searchButton} onClick={handleSearch}>
                     <SearchIcon
                         width={16}
@@ -30,9 +27,7 @@ const Header: Component<HeaderProps> = props => {
                 </button>
 
                 <input
-                    class={`${styles.input} ${
-                        props.theme ? styles[props.theme] : ""
-                    }`}
+                    class={styles.input}
                     name="search"
                     id="search"
                     placeholder="Search"

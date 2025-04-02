@@ -28,7 +28,7 @@ const MainPage: Component<CardProps> = props => {
         <>
             <div class={styles.gridContainer}>
                 <div class={styles.header}>
-                <Header {...commonProps} />
+                    <Header {...commonProps} />
                 </div>
                 <div class={styles.main}>
                     <MainCard {...commonProps} />

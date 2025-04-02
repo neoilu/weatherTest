@@ -23,14 +23,13 @@ const App: Component = () => {
     createEffect(() => {
         if (weatherResponse()) {
             updateTheme(weatherResponse()!)
-            console.log("Тема обновлена:", theme())
         }
     })
 
     return (
         <>
             {dataResponse() && weatherResponse() ? (
-                <div>
+                <div class="height: 100%">
                     <MainPage
                         data={dataResponse()!}
                         weather={weatherResponse()!}

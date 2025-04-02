@@ -28,7 +28,6 @@
     border-radius: 10px;
     padding: 0 12px 0 8px;
     gap: 6px;
-    margin-left: 80px;
 }
 
 .input {
@@ -84,33 +83,8 @@
 }
 
 
-
-
 @media (max-width: 768px) {
-    .headerBlock {
-        height: 80px;
-        justify-content: center;
-    }
-
-    .searchInput {
-        max-width: 90%;
-        height: 36px;
-        margin-left: 0;
-    }
-}
-
-@media (max-width: 480px) {
-    .headerBlock {
-        height: 70px;
-        flex-direction: column;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .searchInput {
-        max-width: 90%;
-        height: 34px;
-        padding: 0 8px;
-        gap: 4px;
+    .searchInput{
+        max-width: 100%;
     }
 }

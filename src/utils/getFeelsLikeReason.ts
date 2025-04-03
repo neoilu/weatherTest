@@ -1,8 +1,8 @@
-import { WeatherDataResponse } from "@/types"
+import { MainDataResponse, WeatherDataResponse } from "@/types"
 import getTimeIndex from "./getTimeIndex"
 
-const getFeelsLikeReason = (weather: WeatherDataResponse) => {
-    const timeIndex = getTimeIndex(weather)!
+const getFeelsLikeReason = (weather: WeatherDataResponse, data: MainDataResponse) => {
+    const timeIndex = getTimeIndex(weather, data)!
     const temperature = weather.current_weather.temperature
     const apparent_temperature = weather.hourly.apparent_temperature[timeIndex]
 

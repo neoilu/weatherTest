@@ -21,7 +21,7 @@ const MainCard: Component<CardProps> = props => {
             </div>
             <div class={styles.bottom}>
                 <p class={styles.weatherState}>
-                    {getWeatherState(props.weather.current_weather.weathercode)}
+                    {getWeatherState(props.weather.current_weather.weathercode).name}
                 </p>
                 <p class={styles.dailyTemperature}>
                     High:{" "}

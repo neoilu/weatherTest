@@ -14,13 +14,13 @@ const FeelsLikeCard: Component<CardProps> = props => {
             <p class={styles.temperature}>
                 {Math.round(
                     props.weather.hourly.apparent_temperature[
-                        getTimeIndex(props.weather)!
+                        getTimeIndex(props.weather, props.data)!
                     ],
                 )}
                 °
             </p>
             <p class={styles.feelsLikeReason}>
-                {getFeelsLikeReason(props.weather)!}
+                {getFeelsLikeReason(props.weather, props.data)!}
             </p>
         </div>
     )

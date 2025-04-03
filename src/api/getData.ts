@@ -1,6 +1,6 @@
 import type { MainDataResponse } from "@/types"
 
-async function getData() {
+async function getData(): Promise<MainDataResponse | null> {
     try {
         const response = await fetch("https://ipwhois.app/json/")
         const data = await response.json()

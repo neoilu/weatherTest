@@ -22,8 +22,6 @@ const MainPage: Component<CardProps> = props => {
         theme: props.theme!,
     }
 
-    console.log(props.theme)
-
     return (
         <>
             <div class={styles.gridContainer}>

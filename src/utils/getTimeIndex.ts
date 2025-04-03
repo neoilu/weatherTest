@@ -1,18 +1,17 @@
-import { WeatherDataResponse } from "@/types";
+import { WeatherDataResponse, MainDataResponse } from "@/types"
 
-const getTimeIndex = (weather: WeatherDataResponse) => {
-    const localNow = new Date();
-    
-    for (let i = 0; i < weather.hourly.time.length; i++) {
-        const gmtDate = new Date(weather.hourly.time[i] + "Z"); 
-        const localDate = new Date(gmtDate.toLocaleString("en-US", { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone }));
-
-        if (localDate.getHours() === localNow.getHours()) {
-            return i;
-        }
+function getTimeIndex(
+    weather: WeatherDataResponse,
+    data: MainDataResponse,
+): number | null {
+    if (!weather?.hourly?.time || !data?.timezone) {
+        return null
     }
 
-    return null; 
+    const localNow = new Date(new Date().toLocaleString("en-US", { timeZone: data.timezone }))
+    const localNowHours = localNow.getHours()
+
+    return localNowHours
 }
 
 export default getTimeIndex

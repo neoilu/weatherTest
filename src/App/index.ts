@@ -1,3 +1,5 @@
 import App from "./App";
+import { MainPage } from "./MainPage";
+import { InfoPage } from "./InfoPage";
 
-export {App}
+export {App, MainPage, InfoPage}

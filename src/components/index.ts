@@ -1,3 +1,5 @@
 import HourCard from "./HourCard/HourCard";
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
 
-export {HourCard}
+export {HourCard, Header, Footer}

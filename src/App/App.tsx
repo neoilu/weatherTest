@@ -1,6 +1,8 @@
 import { Component, onMount, createEffect } from "solid-js"
 import { useFetchWeather, useTheme, useFetchData } from "@/hooks"
-import { MainPage } from "./MainPage"
+import { Router, Route } from "@solidjs/router"
+import { MainPage, InfoPage } from "./"
+import { Footer } from "@/components"
 
 const App: Component = () => {
     const { dataResponse, fetchData } = useFetchData()
@@ -29,13 +31,35 @@ const App: Component = () => {
     return (
         <>
             {dataResponse() && weatherResponse() ? (
-                <div class="height: 100%">
-                    <MainPage
+                <>
+                    <Router>
+                        <Route
+                            path="/"
+                            component={() => (
+                                <MainPage
+                                    data={dataResponse()!}
+                                    weather={weatherResponse()!}
+                                    theme={theme}
+                                />
+                            )}
+                        />
+                        <Route
+                            path="/info"
+                            component={() => (
+                                <InfoPage
+                                    data={dataResponse()!}
+                                    weather={weatherResponse()!}
+                                    theme={theme}
+                                />
+                            )}
+                        />
+                    </Router>
+                    <Footer
                         data={dataResponse()!}
                         weather={weatherResponse()!}
                         theme={theme}
                     />
-                </div>
+                </>
             ) : (
                 <div>Loading...</div>
             )}

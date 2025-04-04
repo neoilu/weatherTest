@@ -1,7 +1,7 @@
 import { Component } from "solid-js"
 import { CardProps } from "@/types"
 import styles from "./style.module.css"
-import Header from "./Header/Header"
+import { Header } from "@/components"
 import {
     MainCard,
     FeelsLikeCard,

@@ -12,13 +12,8 @@ html {
   height: 100%;
   width: 100%;
   background-attachment: fixed;
-  overflow: hidden;
-}
+  overflow: auto;
 
-@media (max-width: 768px) {
-  body, html {
-    overflow: auto;
-  }
 }
 .nightTheme {
   background-image: linear-gradient(#08091E, #2E4068);

@@ -9,6 +9,29 @@
     height: 100%;
 }
 
+.scroll {
+    display: flex;
+    overflow-x: auto;
+    max-width: 95%;
+    gap: 12px;
+    scrollbar-width: thin; 
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.scroll::-webkit-scrollbar {
+    height: 4px; 
+}
+
+.scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+
 .nightTheme {
     background-color: rgba(118, 118, 128, 0.24);
 }

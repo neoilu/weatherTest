@@ -2,17 +2,18 @@
     margin: 0 auto;
     justify-content: center;
     padding: 0;
-    max-width: 90%;
+    max-width: 70%;
     height: 100%;
     display: grid;
-    grid-template-columns: 0.5fr 0.5fr 1fr 1fr;
-    grid-template-rows: 0.25fr 1fr 1fr 1fr;
     gap: 25px 25px;
+    grid-template-columns: 1fr 1fr 1fr 0.5fr;
+    grid-template-rows: 100px 0.25fr 1fr 0.5fr 1fr;
     grid-template-areas:
         "header header header header"
-        "main main nextHours nextWeek"
-        "main main wind nextWeek"
-        "feelsLike precipitation . nextWeek";
+        "main main nextHours nextHours"
+        "main main nextWeek nextWeek"
+        "feelsLike precipitation nextWeek nextWeek"
+        "wind wind nextWeek nextWeek"
 }
 
 
@@ -44,23 +45,28 @@
     grid-area: nextWeek;
 }
 
-
-@media (max-width: 1150px) {
+@media (max-width: 1050px) {
     .gridContainer {
-        height: 80vh;
+        max-width: 90%;
+        height: auto;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 0.25fr 1fr 1fr 1fr 2fr;
+        grid-template-rows: 0.25fr 1fr 1fr 1fr 1fr 1fr 3fr;
         grid-template-areas:
             "header header"
             "main main"
+            "main main"
+            "nextHours nextHours"
             "feelsLike precipitation"
-            "nextHours wind"
+            "wind wind"
             "nextWeek nextWeek";
     }
 }
 
+
+
 @media (max-width: 768px) {
     .gridContainer {
+        max-width: 90%;
         height: auto;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 0.25fr 1fr 1fr 1fr 1fr 1fr 3fr;

@@ -1,0 +1,19 @@
+.card {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 16px 8px 16px;
+}
+
+p {
+    color: #FFF;
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 700;
+    margin: 0;
+    text-align: center;
+}
+
+img {
+    width: 50px;
+    height: 50px;
+}

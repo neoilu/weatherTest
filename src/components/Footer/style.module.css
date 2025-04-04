@@ -33,7 +33,7 @@ a:hover {
     color: #4fa3d1;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1050px) {
     .footer {
         position: relative;
         margin: 20px 0 20px 0;

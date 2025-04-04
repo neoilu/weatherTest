@@ -14,7 +14,7 @@ const Footer: Component<CardProps> = props => {
   return (
     <div class={`${styles.footer} ${styles[props.theme()]}`}>
       <a href={isInfoPage() ? "/" : "/info"} onClick={() => setTimeout(updatePath, 10)}>
-        {isInfoPage() ? "Назад" : "О проекте"}
+        {isInfoPage() ? "Back" : "About"}
       </a>
     </div>
   );

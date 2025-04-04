@@ -1,5 +1,5 @@
 .footer {
-    position: fixed; /* Оставляем фиксированное позиционирование для десктопа */
+    position: fixed; 
     bottom: 20px;
     right: 20px;
     padding: 10px 15px;
@@ -33,7 +33,6 @@ a:hover {
     color: #4fa3d1;
 }
 
-/* Мобильная версия */
 @media (max-width: 768px) {
     .footer {
         position: relative;

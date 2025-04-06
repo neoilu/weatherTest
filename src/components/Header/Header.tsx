@@ -1,5 +1,5 @@
 import { Component, createSignal } from "solid-js"
-import styles from "./styles.module.css"
+import styles from "./style.module.css"
 import { SearchIcon, XIcon } from "@/icons"
 import { CardProps } from "@/types"
 

@@ -1,15 +1,15 @@
 import { WeatherDataResponse } from "@/types"
 import { getWeatherState, normalizeTime } from "@/utils"
 import { Component } from "solid-js"
-import styles from "./style.module.css"
+import styles from "./hourcard.module.css"
 
 interface HourCardProps {
     timeIndex: number | null
     weather: WeatherDataResponse | undefined
-    isNow?: boolean 
+    isNow?: boolean
 }
 
-const HourCard: Component<HourCardProps> = (props) => {
+const HourCard: Component<HourCardProps> = props => {
     if (!props.weather || props.timeIndex === null) {
         return <div>Loading...</div>
     }
@@ -21,21 +21,20 @@ const HourCard: Component<HourCardProps> = (props) => {
         return <div>Invalid data</div>
     }
 
-    const weatherState = getWeatherState(weatherCode);
-    console.log("styles.card =", styles.card)
-
+    const weatherState = getWeatherState(weatherCode)
 
     return (
         <div class={styles.card}>
-            {props.isNow ? (
-                <p>Now</p>  
-            ) : (
-                <p>{normalizeTime(time)}</p>
-            )}
+            {props.isNow ? <p>Now</p> : <p>{normalizeTime(time)}</p>}
             <img src={weatherState.icon} alt={weatherState.name} />
-            <p>{Math.round(props.weather.hourly.temperature_2m[props.timeIndex])}°</p>
+            <p>
+                {Math.round(
+                    props.weather.hourly.temperature_2m[props.timeIndex],
+                )}
+                °
+            </p>
         </div>
-    );
-};
+    )
+}
 
-export default HourCard;
+export default HourCard

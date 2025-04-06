@@ -1,0 +1,39 @@
+.card {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+}
+
+.right{
+    display: flex;
+    align-items: center;
+}
+
+
+.separator {
+    width: 100px;
+    height: 3px;
+    background-color: #ccc;
+    margin: 0 20px; 
+  }
+  
+
+img {
+    width: 50px;
+    height: 50px;
+}
+
+.dayLabel {
+    color: #FFF;
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    font-size: 20px;
+    width: 50px;
+}

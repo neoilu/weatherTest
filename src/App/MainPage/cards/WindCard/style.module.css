@@ -1,6 +1,5 @@
 .card {
     display: flex;
-    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     border-radius: 16px;
@@ -28,3 +27,15 @@ p {
     margin: 0;
     text-align: center;
 }
+
+
+.compass {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  

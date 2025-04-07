@@ -12,7 +12,6 @@ const useFetchWeather = () => {
             const weather = await getWeather(
                 data.latitude,
                 data.longitude,
-                data.timezone,
             )
             if (!weather) {
                 throw new Error("getWeather err!")

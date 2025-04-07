@@ -7,9 +7,8 @@
     display: grid;
     gap: 25px 25px;
     grid-template-columns: 1fr 1fr 1fr 0.5fr;
-    grid-template-rows: 100px 0.25fr 1fr 0.5fr 1fr;
+    grid-template-rows:  0.25fr 1fr 0.5fr 1fr;
     grid-template-areas:
-        "header header header header"
         "main main nextHours nextHours"
         "main main nextWeek nextWeek"
         "feelsLike precipitation nextWeek nextWeek"
@@ -18,7 +17,8 @@
 
 
 .header {
-    grid-area: header;
+    margin: 0 auto;
+    max-width: 70%;
 }
 
 .main {
@@ -45,14 +45,19 @@
     grid-area: nextWeek;
 }
 
+.blur {
+    filter: blur(5px); 
+    pointer-events: none; 
+    transition: filter 0.3s ease; 
+  }
+
 @media (max-width: 1050px) {
     .gridContainer {
         max-width: 90%;
         height: auto;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 0.25fr 1fr 1fr 1fr 1fr 1fr 3fr;
+        grid-template-rows:  1fr 1fr 1fr 1fr 1fr 3fr;
         grid-template-areas:
-            "header header"
             "main main"
             "main main"
             "nextHours nextHours"
@@ -69,9 +74,8 @@
         max-width: 90%;
         height: auto;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 0.25fr 1fr 1fr 0.25fr 1fr 1fr 3fr;
+        grid-template-rows: 1fr 1fr 0.25fr 1fr 1fr 3fr;
         grid-template-areas:
-            "header header"
             "main main"
             "main main"
             "nextHours nextHours"

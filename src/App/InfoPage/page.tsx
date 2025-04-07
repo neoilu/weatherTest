@@ -8,7 +8,7 @@ const InfoPage: Component<CardProps> = (props) => {
   }
 
   return (
-    <div class={`${styles.page} ${styles[props.theme()]}`}>
+    <div class={`${styles.page}`}>
       <h1>About</h1>
       <p>
         This is my first project, and although it is small, I feel like I have spent a lot of time on it.  

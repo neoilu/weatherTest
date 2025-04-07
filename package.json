@@ -18,7 +18,9 @@
   },
   "dependencies": {
     "@solidjs/router": "^0.15.3",
+    "debounce": "^2.2.0",
     "path": "^0.12.7",
-    "solid-js": "^1.9.5"
+    "solid-js": "^1.9.5",
+    "use-debounce": "^10.0.4"
   }
 }

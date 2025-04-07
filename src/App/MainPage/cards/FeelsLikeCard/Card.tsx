@@ -9,7 +9,7 @@ const FeelsLikeCard: Component<CardProps> = props => {
     }
 
     return (
-        <div class={`${styles.card} ${styles[props.theme()]}`}>
+        <div class={`${styles.card}`}>
             <p class={styles.cardName}>FEELS LIKE</p>
             <p class={styles.temperature}>
                 {Math.round(

@@ -15,6 +15,15 @@ html {
   overflow: auto;
 
 }
+
+
+.grid-container.blur {
+  filter: blur(8px);
+  transition: filter 0.3s ease;
+  pointer-events: none;
+}
+
+
 .nightTheme {
   background-image: linear-gradient(#08091E, #2E4068);
   background-repeat: no-repeat;

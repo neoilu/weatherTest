@@ -34,7 +34,6 @@ export interface WeatherDataResponse {
 export interface CardProps {
     data?: MainDataResponse
     weather?: WeatherDataResponse
-    theme: () => string
 }
 
 export interface WeatherState {

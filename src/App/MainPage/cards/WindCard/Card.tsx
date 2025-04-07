@@ -5,7 +5,7 @@ import styles from "./style.module.css"
 
 const WindCard: Component<CardProps> = props => {
     return (
-        <div class={`${styles.card} ${styles[props.theme()]}`}>
+        <div class={`${styles.card}`}>
             <div>
                 <p>Wind: {props.weather?.current_weather.windspeed} km/h</p>
                 <p>Direction: {props.weather?.current_weather.winddirection}</p>

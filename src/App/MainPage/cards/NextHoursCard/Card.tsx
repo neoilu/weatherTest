@@ -15,7 +15,7 @@ const NextHoursCard: Component<CardProps> = props => {
     }
 
     return (
-        <div class={`${styles.card} ${styles[props.theme()]}`}>
+        <div class={`${styles.card}`}>
             <div class={styles.scroll}>
                 <HourCard timeIndex={timeIndex} weather={props.weather} isNow={true}/>
                 {Array.from({ length: 23 }, (_, i) => (

@@ -4,12 +4,12 @@ import type { CardProps } from "@/types"
 import { getWeatherState } from "@/utils"
 
 const MainCard: Component<CardProps> = props => {
-    if (!props.data || !props.weather) {
+    if (!props.data! || !props.weather!) {
         return <div>Loading...</div>
     }
 
     return (
-        <div class={`${styles.card} ${styles[props.theme()]}`}>
+        <div class={`${styles.card}`}>
             <div class={styles.top}>
                 <p class={styles.location}>MY LOCATION</p>
                 <p class={styles.city}>{props.data.city}</p>

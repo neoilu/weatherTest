@@ -11,6 +11,7 @@ function getTimeIndex(
     const localNow = new Date(new Date().toLocaleString("en-US", { timeZone: data.timezone }))
     const localNowHours = localNow.getHours()
 
+    console.log(localNowHours)
     return localNowHours
 }
 

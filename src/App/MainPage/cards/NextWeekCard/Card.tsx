@@ -11,7 +11,7 @@ const NextWeekCard: Component<CardProps> = props => {
     const data = props.data
     
     return (
-        <div class={`${styles.card} ${styles[props.theme()]}`}>
+        <div class={`${styles.card}`}>
             <DayCard weather={weather} index={0} isToday={true} />
             {Array.from({ length: 6 }, (_, i) => (
                 <DayCard

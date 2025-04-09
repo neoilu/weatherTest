@@ -1,5 +1,5 @@
-import { MainDataResponse, WeatherDataResponse } from "@/types"
-import getTimeIndex from "./getTimeIndex"
+import { MainDataResponse, WeatherDataResponse } from "../types"
+import { getTimeIndex } from "./"
 
 const getFeelsLikeReason = (weather: WeatherDataResponse, data: MainDataResponse) => {
     const timeIndex = getTimeIndex(weather, data)!

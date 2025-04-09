@@ -1,5 +1,4 @@
-import HourCard from "./HourCard/HourCard";
-import Header from "./Header/Header";
-import Footer from "./Footer/Footer";
+import { Header } from "@/components/Header/Header"
+import { HourCard } from "@/components/HourCard/HourCard"
 
-export {HourCard, Header, Footer}
+export { Header, HourCard }

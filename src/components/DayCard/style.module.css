@@ -1,39 +1,47 @@
-.card {
+.dayCard {
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: center;
+    color: #FFF;
+    font-family: 'SF Pro Display', sans-serif;
+    margin-bottom: 10px;
 }
 
-.left {
+.topLine {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2); 
+    margin-bottom: 8px;
+}
+
+.weatherIcon {
+    width: 40px;
+    height: 40px;
+    margin-right: 25px;
+}
+
+.dayLabel {
+    font-weight: 600;
+    text-align: left;
+    font-size: 20px;
+    width: 40px;
+    margin-right: 25px;
+}
+
+.temperatureRange {
     display: flex;
     align-items: center;
 }
 
-.right{
-    display: flex;
-    align-items: center;
+.temperature {
+    font-weight: 600;
+    font-size: 16px;
 }
-
 
 .separator {
     width: 100px;
     height: 3px;
     background-color: #ccc;
-    margin: 0 20px; 
-  }
-  
-
-img {
-    width: 50px;
-    height: 50px;
-}
-
-.dayLabel {
-    color: #FFF;
-    font-family: 'SF Pro Display', sans-serif;
-    font-weight: 600;
-    text-align: center;
-    font-size: 20px;
-    width: 50px;
+    margin: 0 20px;
 }

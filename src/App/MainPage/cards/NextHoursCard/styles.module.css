@@ -1,4 +1,4 @@
-.card {
+.nextHoursCard {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,7 +9,7 @@
     height: 100%;
 }
 
-.scroll {
+.hourlyScroll {
     display: flex;
     overflow-x: auto;
     max-width: 95%;
@@ -18,15 +18,15 @@
     scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
 }
 
-.scroll::-webkit-scrollbar {
+.hourlyScroll::-webkit-scrollbar {
     height: 4px; 
 }
 
-.scroll::-webkit-scrollbar-track {
+.hourlyScroll::-webkit-scrollbar-track {
     background: transparent;
 }
 
-.scroll::-webkit-scrollbar-thumb {
+.hourlyScroll::-webkit-scrollbar-thumb {
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 4px;
 }
@@ -42,12 +42,4 @@
 
 .rainTheme {
     background-color: rgba(106, 106, 124, 0.24);
-}
-
-.topText {
-    color: #FFF;
-    font-family: 'SF Pro Display', sans-serif;
-    font-weight: 600;
-    margin: 0;
-    text-align: left;
 }

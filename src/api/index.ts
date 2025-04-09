@@ -1,5 +1,6 @@
-import getData from "./getData"
-import getWeather from "./getWeather"
-import search from "./search"
+import { $cityData, $error, $loading, fetchData, setData } from "./getCityData"
+import { $suggestions, searchSuggestions, setSuggestionsFx } from "./getSuggestions"
+import { $weatherData, fetchWeatherFx } from "./getWeatherData"
+import { $theme, updateThemeFx } from "./updateTheme"
 
-export { getData, getWeather, search }
+export { $cityData, $error, $loading, fetchData, setData, $suggestions, searchSuggestions, $weatherData, fetchWeatherFx, setSuggestionsFx, $theme, updateThemeFx  }

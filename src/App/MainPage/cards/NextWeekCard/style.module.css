@@ -1,11 +1,32 @@
-.card {
+.nextWeekCard {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: stretch;
     border-radius: 16px;
     padding: 20px;
     width: 100%;
+    height: 100%;
+}
+
+.cardHeader{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px
+}
+
+.cardTitle{
+    color: #FFF;
+    font-family: 'SF Pro Display', sans-serif;
+    opacity: 0.8;
+    font-size: 14px;
+    margin-left: 8px;
+}
+
+.daysContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100%;
 }
 
@@ -19,12 +40,4 @@
 
 .rainTheme {
     background-color: rgba(106, 106, 124, 0.24);
-}
-
-p {
-    color: #FFF;
-    font-family: 'SF Pro Display', sans-serif;
-    font-weight: 600;
-    margin: 0;
-    text-align: center;
 }

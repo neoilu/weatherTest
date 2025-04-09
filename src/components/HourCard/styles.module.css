@@ -1,20 +1,24 @@
-.card {
+.hourlyCard {
     display: flex;
     align-items: center;
     flex-direction: column;
     margin: 0 16px 8px 16px;
-}
-
-p {
     color: #FFF;
     font-family: 'SF Pro Display', sans-serif;
-    font-weight: 700;
-    margin: 0;
-    font-size: 20px;
-    text-align: center;
 }
 
-img {
+.timeLabel {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.weatherIcon {
     width: 50px;
     height: 50px;
+    margin: 8px 0 8px 0;
+}
+
+.hourlyTemperature {
+    font-weight: 500;
+    font-size: 14px;
 }

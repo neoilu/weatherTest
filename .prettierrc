@@ -5,7 +5,7 @@
   ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
-  "printWidth": 200,
+  "printWidth": 180,
   "proseWrap": "always",
   "semi": false,
   "singleQuote": false,

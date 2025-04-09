@@ -1,110 +1,98 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 
 body,
 html {
-  height: 100%;
-  width: 100%;
-  background-attachment: fixed;
-  overflow: auto;
-
+    height: 100%;
+    width: 100%;
+    background-attachment: fixed;
+    overflow: auto;
 }
 
 
-.grid-container.blur {
-  filter: blur(8px);
-  transition: filter 0.3s ease;
-  pointer-events: none;
+body.nightTheme {
+    background-image: linear-gradient(#08091E, #2E4068);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-
-.nightTheme {
-  background-image: linear-gradient(#08091E, #2E4068);
-  background-repeat: no-repeat;
-  background-size: cover;
+body.dayTheme {
+    background-image: linear-gradient(#9ECAE3, #6399B5);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.dayTheme {
-  background-image: linear-gradient(#9ECAE3, #6399B5);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.rainTheme {
-  background-image: linear-gradient(#5f7c8a, #3b5062);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-
-
-
-
-@font-face {
-  font-family: "SF Pro Display";
-  src: url(fonts/SF-Pro-Display-Thin.otf) format(opentype);
-  font-weight: 100;
-  font-style: normal;
+body.rainTheme {
+    background-image: linear-gradient(#5f7c8a, #3b5062);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 @font-face {
-  font-family: "SF Pro Display";
-  src: url(fonts/SF-Pro-Display-Ultralight.otf) format(opentype);
-  font-weight: 200;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "SF Pro Display";
-  src: url(fonts/SF-Pro-Display-Light.otf) format(opentype);
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "SF Pro Display";
-  src: url(fonts/SF-Pro-Display-Regular.otf) format(opentype);
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "SF Pro Display";
-  src: url(fonts/SF-Pro-Display-Medium.otf) format(opentype);
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "SF Pro Display";
-  src: url(fonts/SF-Pro-Display-Semibold.otf) format(opentype);
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "SF Pro Display";
-  src: url(fonts/SF-Pro-Display-Bold.otf) format(opentype);
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "SF Pro Display";
-  src: url(fonts/SF-Pro-Display-Heavy.otf) format(opentype);
-  font-weight: 800;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "SF Pro Display";
-  src: url(fonts/SF-Pro-Display-Black.otf) format(opentype);
-  font-weight: 900;
-  font-style: normal;
-}
+    font-family: "SF Pro Display";
+    src: url(fonts/SF-Pro-Display-Thin.otf) format(opentype);
+    font-weight: 100;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "SF Pro Display";
+    src: url(fonts/SF-Pro-Display-Ultralight.otf) format(opentype);
+    font-weight: 200;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "SF Pro Display";
+    src: url(fonts/SF-Pro-Display-Light.otf) format(opentype);
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "SF Pro Display";
+    src: url(fonts/SF-Pro-Display-Regular.otf) format(opentype);
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "SF Pro Display";
+    src: url(fonts/SF-Pro-Display-Medium.otf) format(opentype);
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "SF Pro Display";
+    src: url(fonts/SF-Pro-Display-Semibold.otf) format(opentype);
+    font-weight: 600;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "SF Pro Display";
+    src: url(fonts/SF-Pro-Display-Bold.otf) format(opentype);
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "SF Pro Display";
+    src: url(fonts/SF-Pro-Display-Heavy.otf) format(opentype);
+    font-weight: 800;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "SF Pro Display";
+    src: url(fonts/SF-Pro-Display-Black.otf) format(opentype);
+    font-weight: 900;
+    font-style: normal;
+  }

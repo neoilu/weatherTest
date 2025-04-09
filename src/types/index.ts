@@ -1,15 +1,14 @@
-export interface MainDataResponse {
+export interface CityData {
     city: string
+    country?: string
     latitude: string
     longitude: string
     timezone: string
 }
 
-export interface WeatherDataResponse {
+export interface WeatherData {
     current_weather: {
         temperature: number
-        windspeed: number
-        winddirection: number
         weathercode: number
         is_day: number
     }
@@ -20,6 +19,7 @@ export interface WeatherDataResponse {
         weathercode: number[]
         wind_speed_10m: number[]
         wind_direction_10m: number[]
+        gusts_10m: number[]
         apparent_temperature: number[]
     }
     daily: {
@@ -32,8 +32,9 @@ export interface WeatherDataResponse {
 }
 
 export interface CardProps {
-    data?: MainDataResponse
-    weather?: WeatherDataResponse
+    cityData: CityData
+    weatherData: WeatherData
+    theme?: string
 }
 
 export interface WeatherState {

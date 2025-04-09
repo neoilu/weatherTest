@@ -1,40 +1,44 @@
-import { WeatherDataResponse } from "@/types"
 import { getWeatherState, normalizeTime } from "@/utils"
-import { Component } from "solid-js"
-import styles from "./hourcard.module.css"
+import styles from "./styles.module.css"
+import { WeatherData, WeatherState } from "@/types"
 
 interface HourCardProps {
-    timeIndex: number | null
-    weather: WeatherDataResponse | undefined
+    timeIndex: number
+    weatherData: WeatherData
     isNow?: boolean
 }
 
-const HourCard: Component<HourCardProps> = props => {
-    if (!props.weather || props.timeIndex === null) {
-        return <div>Loading...</div>
+const resolveWeatherState = (weatherCode: number, timeIndex: number): WeatherState => {
+    const adjustedTime = timeIndex % 24;
+    const isNight = adjustedTime >= 21 || adjustedTime <= 5;
+    console.log(timeIndex, adjustedTime)
+    
+    if (isNight) {
+        if (weatherCode === 0) {
+            return getWeatherState(105); 
+        } else if (weatherCode === 2) {
+            return getWeatherState(106);
+        }
     }
 
-    const time = props.weather?.hourly.time[props.timeIndex]
-    const weatherCode = props.weather?.hourly.weathercode[props.timeIndex]
+    return getWeatherState(weatherCode);
+}
+export const HourCard = ({ timeIndex, weatherData, isNow }: HourCardProps) => {
+    const time = weatherData?.hourly.time[timeIndex]
+    const weatherCode = weatherData?.hourly.weathercode[timeIndex]
 
     if (!time || weatherCode === undefined) {
         return <div>Invalid data</div>
     }
 
-    const weatherState = getWeatherState(weatherCode)
+    const weather = resolveWeatherState(weatherCode, timeIndex)
+    const temperature = Math.round(weatherData.hourly.temperature_2m[timeIndex])
 
     return (
-        <div class={styles.card}>
-            {props.isNow ? <p>Now</p> : <p>{normalizeTime(time)}</p>}
-            <img src={weatherState.icon} alt={weatherState.name} />
-            <p>
-                {Math.round(
-                    props.weather.hourly.temperature_2m[props.timeIndex],
-                )}
-                °
-            </p>
+        <div className={styles.hourlyCard}>
+            <p className={styles.timeLabel}>{isNow ? "Now" : normalizeTime(time)}</p>
+            <img className={styles.weatherIcon} src={weather.icon} alt={weather.name} />
+            <p className={styles.hourlyTemperature}>{temperature}°</p>
         </div>
     )
 }
-
-export default HourCard

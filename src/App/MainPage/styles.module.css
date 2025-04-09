@@ -1,0 +1,50 @@
+.blur {
+    filter: blur(8px);
+    transition: filter 0.3s ease;
+    pointer-events: none;
+  }
+
+  .gridContainer {
+    margin: 0 auto 20px auto;
+    justify-content: center;
+    padding: 0;
+    max-width: 70%;
+    height: 100%;
+    display: grid;
+    gap: 25px 25px;
+    grid-template-columns: 1fr 1fr 1fr 0.5fr;
+    grid-template-rows: 0.25fr 1fr 0.5fr 1fr;
+    grid-template-areas:
+        "main main nextHours nextHours"
+        "main main nextWeek nextWeek"
+        "feelsLike precipitation nextWeek nextWeek"
+        "wind wind nextWeek nextWeek"
+}
+
+.header {
+  grid-area: header;
+}
+
+.main {
+  grid-area: main;
+}
+
+.feelsLike {
+  grid-area: feelsLike;
+}
+
+.precipitation {
+  grid-area: precipitation;
+}
+
+.nextHours {
+  grid-area: nextHours;
+}
+
+.wind {
+  grid-area: wind;
+}
+
+.nextWeek {
+  grid-area: nextWeek;
+}

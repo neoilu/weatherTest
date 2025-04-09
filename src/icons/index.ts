@@ -1,14 +1,18 @@
 export interface IconProps {
     width: number
     height: number
-    color: string
+    fill: string
     opacity: number
-    style?: Record<string, string>
+    style?: string
 }
 
-import SearchIcon from "./SearchIcon"
-import XIcon from "./XIcon"
-import Arrow from "./Arrow"
-import CompassSvg from "./CompassSvg"
+import { FeelsLikeIcon } from "@/icons/FeelsLikeIcon"
+import { SearchIcon } from "@/icons/SearchIcon"
+import { XIcon } from "@/icons/XIcon"
+import { PrecipitationIcon } from "@/icons/PrecipitationIcon"
+import { NextWeekIcon } from "@/icons/NextWeekIcon"
+import { LocationIcon } from "@/icons/LocationIcon"
+import { ArrowIcon } from "./ArrowIcon"
+import { CompassSvg } from "./CompassSvg"
 
-export { SearchIcon, XIcon, Arrow, CompassSvg }
+export { SearchIcon, XIcon, FeelsLikeIcon, PrecipitationIcon, NextWeekIcon, LocationIcon, ArrowIcon, CompassSvg }

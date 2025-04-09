@@ -1,5 +1,5 @@
-import { WeatherState } from "@/types";
-import * as assets from "@/assets";
+import { WeatherState } from "../types";
+import * as assets from "../assets";
 
 const getWeatherState = (code: number) => {
     const description: Record<number, WeatherState> = {

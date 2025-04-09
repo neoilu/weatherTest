@@ -1,101 +1,34 @@
-import { Component, onMount, createSignal, createEffect } from "solid-js";
-import { useFetchWeather, useTheme, useFetchData } from "@/hooks";
-import { Router, Route } from "@solidjs/router";
-import { MainPage, InfoPage } from "./";
-import { Footer } from "@/components";
-import { Header } from "@/components";
-import styles from "./style.module.css";
-import { CardProps, MainDataResponse, WeatherDataResponse } from "@/types";
+import { useEffect } from "react"
+import { Header } from "../components"
+import { $cityData, $error, $loading, fetchData, $weatherData} from "../api"
+import { MainPage } from "./MainPage/MainPage"
+import { useUnit } from "effector-react"
 
-const App: Component = () => {
-    console.log("[App] Initializing component");
-    
-    const { dataResponse, fetchData } = useFetchData();
-    const { weatherResponse, fetchWeather } = useFetchWeather();
-    const { theme, updateTheme } = useTheme();
+export const App = () => {
+    const cityData = useUnit($cityData)
+    const weatherData = useUnit($weatherData)
+    const loading = useUnit($loading)
+    const error = useUnit($error)
 
-    const [props, setProps] = createSignal<CardProps>({ data: undefined, weather: undefined });
-    const [loading, setLoading] = createSignal(false);
 
-    const handleCityChange = async (weather: WeatherDataResponse, data: MainDataResponse) => {
-        console.log("[App.handleCityChange] Received new city data:", { weather, data });
-        
-        const newData = {
-            city: data.city,
-            latitude: data.latitude,
-            longitude: data.longitude,
-            timezone: data.timezone
-        };
-        
-        const newWeather = {
-            current_weather: { ...weather.current_weather },
-            daily: { ...weather.daily },
-            hourly: { ...weather.hourly }
-        };
-        
-        setProps({ data: newData, weather: newWeather });
-        updateTheme(newWeather);
-    };
+    useEffect(() => {
+        fetchData()
+    }, [])
 
-    const fetchProps = async () => {
-        try {
-            setLoading(true);
-            await fetchData();
-            
-            const data = dataResponse();
-            
-            if (data) {
-                await fetchWeather(data);
-                
-                const weather = weatherResponse();
-                
-                if (weather) {
-                    setProps({ data, weather });
-                }
-            }
-        } catch (e) {
-            console.log(e)
-        } finally {
-            setLoading(false);
-        }
-    };
+    if (loading) {
+        return <p>Loading...</p>
+    }
 
-    onMount(() => {
-        fetchProps();
-    });
-
-    createEffect(() => {
-        const weather = weatherResponse();
-        if (weather) {
-            updateTheme(weather);
-        }
-    });
-
+    if (error) {
+        return <p>Error</p>
+    }
 
     return (
-        <>
-            {loading() ? (
-                <div>Loading...</div>
-            ) : props().weather && props().data ? (
-                <>
-                    <div class={styles.header}>
-                        <Header 
-                            weather={props().weather} 
-                            data={props().data} 
-                            onHandleCity={handleCityChange} 
-                        />
-                    </div>
-                    <Router>
-                        <Route path="/" component={() => <MainPage data={props().data} weather={props().weather} />} />
-                        <Route path="/info" component={() => <InfoPage data={props().data} weather={props().weather} />} />
-                    </Router>
-                    <Footer data={props().data} weather={props().weather} />
-                </>
-            ) : (
-                <div>No weather data available</div>
-            )}
-        </>
-    );
-};
-
-export default App;
+        cityData && weatherData && (
+            <div>
+                <Header />
+                <MainPage cityData={cityData} weatherData={weatherData} />
+            </div>
+        )
+    )
+}

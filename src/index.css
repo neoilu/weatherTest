@@ -20,18 +20,21 @@ body.nightTheme {
     background-image: linear-gradient(#08091E, #2E4068);
     background-repeat: no-repeat;
     background-size: cover;
+    padding-top: env(safe-area-inset-top);
 }
 
 body.dayTheme {
     background-image: linear-gradient(#9ECAE3, #6399B5);
     background-repeat: no-repeat;
     background-size: cover;
+    padding-top: env(safe-area-inset-top);
 }
 
 body.rainTheme {
     background-image: linear-gradient(#5f7c8a, #3b5062);
     background-repeat: no-repeat;
     background-size: cover;
+    padding-top: env(safe-area-inset-top);
 }
 
 @font-face {

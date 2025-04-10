@@ -153,6 +153,11 @@
     .searchInputWrapper {
         max-width: 85%;
     }
+
+    .suggestionsList{
+        max-width: 85%;
+        left: calc(15% / 2)
+    }
     .inputBox{
         width: 100%;
         justify-content: space-around;

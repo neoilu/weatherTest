@@ -3,6 +3,7 @@ import { Header } from "../components"
 import { $cityData, $error, $loading, fetchData, $weatherData} from "../api"
 import { MainPage } from "./MainPage/MainPage"
 import { useUnit } from "effector-react"
+import styles from "./styles.module.css"
 
 export const App = () => {
     const cityData = useUnit($cityData)
@@ -16,7 +17,7 @@ export const App = () => {
     }, [])
 
     if (loading) {
-        return <p>Loading...</p>
+        return <div className={styles.loading}></div>
     }
 
     if (error) {

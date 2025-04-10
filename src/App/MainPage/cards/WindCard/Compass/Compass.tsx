@@ -14,7 +14,7 @@ export const Compass = (props: CompassProps) => {
                 fill="#d9d9d9"
                 opacity={1}
                 style={{
-                    transform: `rotate(${props.direction}deg)`,
+                    transform: `rotate(${-props.direction}deg)`,
                 }}
             />
         </div>

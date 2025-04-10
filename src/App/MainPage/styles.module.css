@@ -1,24 +1,24 @@
 .blur {
-    filter: blur(8px);
-    transition: filter 0.3s ease;
-    pointer-events: none;
-  }
+  filter: blur(8px);
+  transition: filter 0.3s ease;
+  pointer-events: none;
+}
 
-  .gridContainer {
-    margin: 0 auto 20px auto;
-    justify-content: center;
-    padding: 0;
-    max-width: 70%;
-    height: 100%;
-    display: grid;
-    gap: 25px 25px;
-    grid-template-columns: 1fr 1fr 1fr 0.5fr;
-    grid-template-rows: 0.25fr 1fr 0.5fr 1fr;
-    grid-template-areas:
-        "main main nextHours nextHours"
-        "main main nextWeek nextWeek"
-        "feelsLike precipitation nextWeek nextWeek"
-        "wind wind nextWeek nextWeek"
+.gridContainer {
+  margin: 0 auto 20px auto;
+  justify-content: center;
+  padding: 0;
+  max-width: 70%;
+  height: 100%;
+  display: grid;
+  gap: 25px 25px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 0.25fr 1fr 0.5fr 1fr;
+  grid-template-areas:
+    "main main nextHours nextHours"
+    "main main nextWeek nextWeek"
+    "feelsLike precipitation nextWeek nextWeek"
+    "wind wind nextWeek nextWeek"
 }
 
 .header {
@@ -47,4 +47,37 @@
 
 .nextWeek {
   grid-area: nextWeek;
+}
+
+
+@media (max-width: 1250px) {
+  .gridContainer {
+      max-width: 70%;
+      height: auto;
+      grid-template-columns: 1fr 0.75fr;
+      grid-template-rows: 0.5fr 0.5fr 0.5fr 1fr 3fr;
+      grid-template-areas:
+          "main feelsLike"
+          "main precipitation"
+          "nextHours nextHours"
+          "wind wind"
+          "nextWeek nextWeek";
+  }
+}
+
+
+@media (max-width: 768px) {
+  .gridContainer {
+      max-width: 85%;
+      height: auto;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 0.5fr 0.25fr 0.75fr 1fr 2.5fr;
+      grid-template-areas:
+          "main main"
+          "main main"
+          "nextHours nextHours"
+          "feelsLike precipitation"
+          "wind wind"
+          "nextWeek nextWeek";
+  }
 }

@@ -82,3 +82,9 @@
 .rainTheme {
     background-color: rgba(106, 106, 124, 0.24);
 }
+
+@media (max-width: 500px) {
+    .windInfo {
+        max-width: 50%;
+    }
+}

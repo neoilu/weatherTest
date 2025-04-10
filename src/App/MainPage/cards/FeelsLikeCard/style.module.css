@@ -23,8 +23,9 @@
 }
 
 .feelsLikeTemperature {
-    font-size: 35px;
-    font-weight: 400;
+    font-size: 50px;
+    font-weight: 300;
+    margin: 10px 0 10px 0;
 }
 
 .feelsLikeDescription {
@@ -43,4 +44,10 @@
 
 .rainTheme {
     background-color: rgba(106, 106, 124, 0.24);
+}
+
+@media (max-width: 768px) {
+    .feelsLikeTemperature{
+        font-size: 52px;
+    }
 }

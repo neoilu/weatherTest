@@ -14,7 +14,7 @@ const resolveWeatherState = (weatherCode: number, timeIndex: number): WeatherSta
     console.log(timeIndex, adjustedTime)
     
     if (isNight) {
-        if (weatherCode === 0) {
+        if (weatherCode === 0 || weatherCode === 1) {
             return getWeatherState(105); 
         } else if (weatherCode === 2) {
             return getWeatherState(106);

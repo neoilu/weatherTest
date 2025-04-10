@@ -1,6 +1,6 @@
-import { WeatherDataResponse, MainDataResponse } from "../types"
+import { CityData, WeatherData } from "../types"
 
-function getTimeIndex(weather: WeatherDataResponse, data: MainDataResponse): number | null {
+function getTimeIndex(weather: WeatherData, data: CityData): number | null {
     if (!weather.hourly?.time || !data.timezone) return null
 
     const now = new Date()

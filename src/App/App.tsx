@@ -27,8 +27,8 @@ export const App = () => {
     return (
         cityData && weatherData && (
             <div>
-                <Header />
-                <MainPage cityData={cityData} weatherData={weatherData} />
+                <Header/>
+                <MainPage/>
             </div>
         )
     )

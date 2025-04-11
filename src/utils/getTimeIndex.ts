@@ -1,8 +1,6 @@
-import { CityData, WeatherData } from "../types"
+import { CityData } from "../types"
 
-function getTimeIndex(weather: WeatherData, data: CityData): number | null {
-    if (!weather.hourly?.time || !data.timezone) return null
-
+function getTimeIndex(data: CityData): number  {
     const now = new Date()
     const localHour = new Date(now.toLocaleString("en-US", { timeZone: data.timezone })).getHours()
 

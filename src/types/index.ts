@@ -31,12 +31,6 @@ export interface WeatherData {
     }
 }
 
-export interface CardProps {
-    cityData: CityData
-    weatherData: WeatherData
-    theme?: string
-}
-
 export interface WeatherState {
     name: string
     icon: string

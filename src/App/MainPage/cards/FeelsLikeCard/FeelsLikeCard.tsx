@@ -1,21 +1,25 @@
-import { CardProps } from "@/types"
 import { getTimeIndex, getFeelsLikeReason } from "@/utils"
-import styles from "./style.module.css"
 import { useUnit } from "effector-react"
-import { $theme } from "@/api"
+import { $cityData, $theme, $weatherData } from "@/api"
 import { FeelsLikeIcon } from "@/icons"
+import styles from "./style.module.css"
 
-export const FeelsLikeCard = (props: CardProps) => {
+export const FeelsLikeCard = () => {
     const theme = useUnit($theme)
+    const weatherData = useUnit($weatherData)
+    const cityData = useUnit($cityData)
 
     return (
-        <div className={`${styles.feelsLikeCard} ${styles[theme]}`}>
-            <div className={styles.cardHeader}>
-                <FeelsLikeIcon fill="#fff" opacity={0.7} height="16px"/>
-                <p className={styles.cardTitle}>FEELS LIKE</p>
+        weatherData &&
+        cityData && (
+            <div className={`${styles.feelsLikeCard} ${styles[theme]}`}>
+                <div className={styles.cardHeader}>
+                    <FeelsLikeIcon fill="#fff" opacity={0.7} height="16px" />
+                    <p className={styles.cardTitle}>FEELS LIKE</p>
+                </div>
+                <p className={styles.feelsLikeTemperature}>{Math.round(weatherData.hourly.apparent_temperature[getTimeIndex(cityData)])}°</p>
+                <p className={styles.feelsLikeDescription}>{getFeelsLikeReason(weatherData, cityData)}</p>
             </div>
-            <p className={styles.feelsLikeTemperature}>{Math.round(props.weatherData.hourly.apparent_temperature[getTimeIndex(props.weatherData, props.cityData)!])}°</p>
-            <p className={styles.feelsLikeDescription}>{getFeelsLikeReason(props.weatherData, props.cityData)}</p>
-        </div>
+        )
     )
 }

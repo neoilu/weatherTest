@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import { useUnit } from "effector-react"
-import { $suggestions, $theme, searchSuggestions, setData, setSuggestionsFx } from "@/api"
-import {  setBlur } from "./blurStore"
 import { debounce } from "lodash"
+import { $suggestions, $theme, searchSuggestions, setData, setSuggestionsFx } from "@/api"
+import { setBlur } from "./blurStore"
 import { SearchIcon, XIcon } from "@/icons"
 import styles from "./styles.module.css"
 
@@ -16,8 +16,8 @@ export const Header = () => {
         searchSuggestions(value)
     }, 500)
 
-    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const value = event.target.value
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value
         setInputValue(value)
         debouncedSearch(value)
     }
@@ -25,7 +25,6 @@ export const Header = () => {
     const handleCancel = () => {
         setInputValue("")
         setSuggestionsFx()
-        setIsFocus(false)
         toggleFocus(false)
     }
 
@@ -50,6 +49,14 @@ export const Header = () => {
         }
     }
 
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === "Enter" && suggestions.length > 0) {
+            handleSearch(suggestions[0])
+            toggleFocus(false)
+            e.currentTarget.blur()
+        }
+    }
+
     return (
         <div className={styles.headerWrapper}>
             <div className={styles.searchContainer}>
@@ -63,19 +70,13 @@ export const Header = () => {
                             className={styles.searchInput}
                             value={inputValue}
                             onInput={handleInputChange}
+                            onFocus={() => toggleFocus(true)}
+                            onKeyDown={handleKeyDown}
                             placeholder="Search city..."
                             autoComplete="off"
-                            onFocus={() => toggleFocus(true)}
-                            onKeyDown={e => {
-                                if (e.key === "Enter" && suggestions.length > 0) {
-                                    toggleFocus(false)
-                                    handleSearch(suggestions[0])
-                                    e.currentTarget.blur()
-                                }
-                            }}
                         />
 
-                        <button className={`${styles.cancelButton} ${isFocus ? "" : styles.hidden}`} onClick={handleCancel}>
+                        <button className={`${styles.cancelButton} ${!isFocus && styles.hidden}`} onClick={handleCancel}>
                             <XIcon width={16} height={16} fill="#f0f0f3" opacity={0.8} />
                         </button>
                     </div>

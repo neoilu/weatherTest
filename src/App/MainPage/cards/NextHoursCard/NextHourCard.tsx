@@ -1,18 +1,18 @@
-import { CardProps } from "@/types"
 import { HourCard } from "@/components"
 import styles from "./styles.module.css"
 import { getTimeIndex } from "@/utils"
 import { useUnit } from "effector-react"
-import { $theme } from "@/api"
-import { useRef } from "react" // Добавляем useRef
+import { $cityData, $theme } from "@/api"
+import { useRef } from "react"
 
-export const NextHoursCard = (props: CardProps) => {
+export const NextHoursCard = () => {
     const theme = useUnit($theme)
-    const scrollRef = useRef<HTMLDivElement>(null) // Создаем ref для контейнера прокрутки
+    const cityData = useUnit($cityData)
+    const scrollRef = useRef<HTMLDivElement>(null)
 
-    const timeIndex = getTimeIndex(props.weatherData, props.cityData)
+    const timeIndex = getTimeIndex(cityData!)
     if (timeIndex == null) {
-        return <div>Error: invalid time index</div>
+        return <div>Error: invalid data</div>
     }
 
     const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
@@ -24,19 +24,10 @@ export const NextHoursCard = (props: CardProps) => {
 
     return (
         <div className={`${styles.nextHoursCard} ${styles[theme]}`}>
-            <div 
-                className={styles.hourlyScroll}
-                ref={scrollRef}
-                onWheel={handleWheel}
-            >
-                <HourCard timeIndex={timeIndex} weatherData={props.weatherData} isNow={true} />
+            <div className={styles.hourlyScroll} ref={scrollRef} onWheel={handleWheel}>
+                <HourCard timeIndex={timeIndex} isNow={true} />
                 {Array.from({ length: 23 }, (_, i) => (
-                    <HourCard
-                        key={i}
-                        timeIndex={timeIndex + i + 1}
-                        weatherData={props.weatherData}
-                        isNow={false}
-                    />
+                    <HourCard key={i} timeIndex={timeIndex + i + 1} isNow={false} />
                 ))}
             </div>
         </div>

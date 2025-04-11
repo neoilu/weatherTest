@@ -18,7 +18,7 @@ export const FeelsLikeCard = () => {
                     <p className={styles.cardTitle}>FEELS LIKE</p>
                 </div>
                 <p className={styles.feelsLikeTemperature}>{Math.round(weatherData.hourly.apparent_temperature[getTimeIndex(cityData)])}°</p>
-                <p className={styles.feelsLikeDescription}>{getFeelsLikeReason(weatherData, cityData)}</p>
+                <p className={styles.feelsLikeDescription}>{getFeelsLikeReason(cityData, weatherData)}</p>
             </div>
         )
     )

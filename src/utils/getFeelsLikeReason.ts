@@ -1,7 +1,7 @@
 import { CityData, WeatherData } from "@/types"
 import { getTimeIndex } from "."
 
-export const getFeelsLikeReason = (
+const getFeelsLikeReason = (
   cityData: CityData,
   weatherData: WeatherData
 ): string => {
@@ -21,3 +21,5 @@ export const getFeelsLikeReason = (
     return "Similar to the actual temperature"
   }
 }
+
+export default getFeelsLikeReason
